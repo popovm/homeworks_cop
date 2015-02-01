@@ -6,11 +6,13 @@ require 'sinatra/activerecord'
 
 require_relative 'models/user'
 
-# require_relative 'routes/users'
+require_relative 'routes/home'
 
 set :database, {adapter: "sqlite3", database: "public/foo.sqlite3"}
 
 enable :sessions
+
+
 
 get '/' do
   (5 + params['number'].to_i).to_s
