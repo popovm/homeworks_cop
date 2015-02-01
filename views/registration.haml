@@ -1,0 +1,10 @@
+%h3 Registration
+%form{action: '/users/create', method: 'post'}
+  %input{name: 'name',value: params['name'], type: 'text'} name
+  %input{name: 'password',value: params['password'], type: 'password'} pass
+  %input{name: 'password_confirmation',value: params['password_confirmation'], type: 'password'} pass conf
+  %input{name: 'email',value: params['email'],type: 'email'} email
+  %input{name: 'fn',value: params['fn'], type: 'text'} fn
+  %input{name: 'submit', value: "Submit", type: 'submit'}
+
+
