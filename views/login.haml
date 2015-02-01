@@ -1,0 +1,5 @@
+%h3 Login
+%form{action: '/login', method: 'post'}
+  %input{name: 'email', value: params['email'], type: 'text'} email
+  %input{name: 'password', value: params['password'], type: 'password'} pass
+  %input{name: 'submit', value: "Submit", type: 'submit'}
