@@ -1,10 +1,19 @@
-%h3 Registration
+%h3 Регистрация
 %form{action: '/users/create', method: 'post'}
-  %input{name: 'name',value: params['name'], type: 'text'} name
-  %input{name: 'password',value: params['password'], type: 'password'} pass
-  %input{name: 'password_confirmation',value: params['password_confirmation'], type: 'password'} pass conf
-  %input{name: 'email',value: params['email'],type: 'email'} email
-  %input{name: 'fn',value: params['fn'], type: 'text'} fn
-  %input{name: 'submit', value: "Submit", type: 'submit'}
-
-
+  %div.inputBlock
+    %label{:for => 'name'} Име
+    %input{name: 'name',value: params['name'], type: 'text'}
+  %div.inputBlock
+    %label{:for => 'password'} Парола
+    %input{name: 'password',value: params['password'], type: 'password'}
+  %div.inputBlock
+    %label{:for => 'password_confirmation'} Потвърдете паролата
+    %input{name: 'password_confirmation',value: params['password_confirmation'], type: 'password'}
+  %div.inputBlock
+    %label{:for => 'email'} Имейл
+    %input{name: 'email',value: params['email'],type: 'email'}
+  %div.inputBlock
+    %label{:for => 'fn'} Факултетен номер
+    %input{name: 'fn',value: params['fn'], type: 'text'}
+  %div.buttonSubmit
+    %input{name: 'submit', value: "Създай профил", type: 'submit'}

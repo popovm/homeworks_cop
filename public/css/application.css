@@ -1,4 +1,4 @@
-img 
+img
 {
 	width: 150px;
 	display: inline-block;
@@ -18,7 +18,7 @@ img
 header
 {
 	background-color: #FFCC99;
-	margin-bottom: 50px;
+	margin-bottom: 20px;
 	border-radius: 4px;
 }
 
@@ -43,31 +43,46 @@ li
 	border-radius: 4px;
 }
 
-a 
+a
 {
 	text-decoration: none;
 	width: 160px;
 	color: #3366CC;
 }
 
-ul 
+ul
 {
 	width: 200px;
 	list-style-type: none;
 	padding-left: 20px;
-	display: block;
+  margin-right: 0px;
 }
 
 .container
 {
-	display: block;
-	width: 400px;
+	display: inline-block;
+	width: 990px;
+  margin-left: 250px;
+  border: solid;
+  border-color: #FFCC99;
+  border-radius: 4px;
+  background-color: #FFCC99;
+}
+
+.menu
+{
+  display: inline-block;
+  position: absolute;
+  top: 180px;
 }
 
 footer
 {
 	border-top: solid;
-	width: 1230px;
-	margin-left: 20px;
+	width: 998px;
+	margin-left: 254px;
+  margin-top: 20px;
 	color: #3366CC;
 }
+
+

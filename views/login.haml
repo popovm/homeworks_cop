@@ -1,5 +1,10 @@
-%h3 Login
+%h3 Вход
 %form{action: '/login', method: 'post'}
-  %input{name: 'email', value: params['email'], type: 'text'} email
-  %input{name: 'password', value: params['password'], type: 'password'} pass
-  %input{name: 'submit', value: "Submit", type: 'submit'}
+  %div.loginBlock
+    %label{:for => 'email'} Имейл
+    %input{name: 'email', value: params['email'], type: 'text'}
+  %div.loginBlock
+    %label{:for => 'password'} Парола
+    %input{name: 'password', value: params['password'], type: 'password'}
+  %div.buttonSubmit
+    %input{name: 'submit', value: "вход", type: 'submit'}

@@ -1,0 +1,48 @@
+h3
+{
+  color: #3366CC;
+  font-size: 30px;
+  text-align: center;
+}
+
+.inputBlock
+{
+  text-align: left;
+  margin-left: 350px;
+  margin-bottom: 20px;
+}
+
+label
+{
+  text-align: left;
+  display: inline-block;
+  width: 150px;
+  color: #3366CC;
+  font-size: 16px;
+}
+
+.buttonSubmit
+{
+  text-align: left;
+  margin-left: 430px;
+}
+
+.buttonSubmit > input
+{
+  width: 140px;
+  height: 30px;
+  font-size: 16px;
+  background-color: #99CCFF;
+}
+
+.loginBlock
+{
+  text-align: left;
+  margin-left: 350px;
+  margin-bottom: 20px;
+}
+
+.loginBlock > label
+{
+  width: 80px;
+}

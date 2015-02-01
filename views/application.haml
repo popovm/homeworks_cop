@@ -1,8 +1,9 @@
 %html
 	%head
 		%title="Проверка на домашни работи"
-		%meta(charset="utf-8") 
+		%meta(charset="utf-8")
 		%link{rel: "stylesheet", href: "../css/application.css"}
+		%link{rel: "stylesheet", href: "../css/registration.css"}
 	%body
 		%header
 			%img{src:"../img/books.png"}
@@ -10,22 +11,21 @@
 				%h1="Проверка на домашни работи"
 				%h2="Проект по WWW технологии"
 			%div.signIn
-				%a{href:"/"} Вход /  
-				%a{href:"/"} Регистрация
-		%div.page
-			%nav
-				%ul
-					%li
-						%a{href:"/"} Начало
-					%li
-						%a{href:"/"} Профил
-					%li
-						%a{href:"/"} Задачи
-					%li
-						%a{href:"/"} Моите пешения
-					%li
-						%a{href:"/"} Контакти
-			%div.container
-				= yield
+				%a{href:"/login"} Вход /
+				%a{href:"/users/new"} Регистрация
+		%div.menu
+			%ul
+				%li
+					%a{href:"/"} Начало
+				%li
+					%a{href:"/"} Профил
+				%li
+					%a{href:"/"} Задачи
+				%li
+					%a{href:"/"} Моите решения
+				%li
+					%a{href:"/"} Контакти
+		%div.container
+			= yield
 		%footer
 			%h2="Alabala :))"

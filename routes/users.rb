@@ -1,5 +1,5 @@
 get '/users/new' do
-  haml :'registration'
+  haml :'registration', layout: :application
 end
 
 before do
@@ -7,15 +7,16 @@ before do
 end
 
 get '/login' do
-  haml :'login'
+  haml :'login', layout: :application
 end
 
 post "/login" do
   @user = User.find_by_email(params[:email])
   if @user and @user.authenticate(params[:password])
     session[:user_id] = @user.id
+    haml :'login_success', layout: :application
   else
-    return "WRONG PASS"
+    haml :'login', layout: :application
   end
 end
 
@@ -30,8 +31,8 @@ post '/users/create' do
   @user.faculty_number = params['fn']
   @user.password = params['password']
   if @user.save
-    return "SUCCESS"
+    haml :'registration_success', layout: :application
   else
-    haml :'registration'
+    haml :'registration', layout: :application
   end
 end
