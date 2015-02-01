@@ -2,10 +2,6 @@ get '/users/new' do
   haml :'registration'
 end
 
-before do
-  @user = User.find_by_id(session[:user_id])
-end
-
 get '/login' do
   haml :'login'
 end
