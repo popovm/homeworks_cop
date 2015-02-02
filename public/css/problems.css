@@ -3,3 +3,21 @@ textarea
   width: 400px;
   height: 200px;
 }
+
+.itemName
+{
+  text-decoration: underline;
+}
+
+.itemBlock
+{
+  border: solid;
+  border-radius: 4px;
+  border-color: #3366CC;
+  border-width: 2px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 10px;
+}

@@ -16,5 +16,4 @@ class User < ActiveRecord::Base
   def teacher?
     true
   end
-
 end
