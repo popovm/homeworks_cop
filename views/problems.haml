@@ -1,7 +1,10 @@
 %h3 Задачи
-
-- @problems.each do |problem|
-  %div.itemBlock
-    %h4.itemName
-      %a{href: "/problems/#{problem.id}"}= problem.name
-    %p= problem.description
+- if @problems.empty?
+  %p
+    Няма задачи :(
+- else
+  - @problems.each do |problem|
+    %div.itemBlock
+      %h4.itemName
+        %a{href: "/problems/#{problem.id}"}= problem.name
+      %p= problem.description

@@ -18,6 +18,6 @@ class Solution < ActiveRecord::Base
       verify_test(exec_filename)
     end.length
 
-    positive_test_count.to_f/problem.tests.count
+    positive_test_count.to_f / problem.tests.count
   end
 end

@@ -1,11 +1,12 @@
 get '/my_solutions' do
   @solutions = Solution.where(author_id: @user.id)
-  haml :'solutions'
+  haml :'my_solutions', layout: :application
 end
 
 get '/problems/:problem_id/solutions' do
-  @solutions = Solution.where(problem_id: params['problem_id'])
-  haml :'solutions'
+  @problem = Problem.find(params['problem_id'])
+  @solutions = Solution.where(problem_id: @problem.id)
+  haml :'solutions', layout: :application
 end
 
 get '/problems/:problem_id/solutions/new' do

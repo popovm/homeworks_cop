@@ -2,12 +2,12 @@
 	%head
 		%title="Проверка на домашни работи"
 		%meta(charset="utf-8")
-		%link{rel: "stylesheet", href: "../css/application.css"}
-		%link{rel: "stylesheet", href: "../css/registration.css"}
-		%link{rel: "stylesheet", href: "../css/problems.css"}
+		%link{rel: "stylesheet", href: "/css/application.css"}
+		%link{rel: "stylesheet", href: "/css/registration.css"}
+		%link{rel: "stylesheet", href: "/css/problems.css"}
 	%body
 		%header
-			%img{src:"../img/books.png"}
+			%img{src:"/img/books.png"}
 			%div.headline
 				%h1="Проверка на домашни работи"
 				%h2="Проект по WWW технологии"
@@ -34,7 +34,7 @@
 					%li
 						%a{href:"/problems"} Задачи
 					%li
-						%a{href:"/"} Моите решения
+						%a{href:"/my_solutions"} Моите решения
 					%li
 						%a{href:"/"} Контакти
 				- if !@user.nil? && @user.teacher?
@@ -45,7 +45,7 @@
 					%li
 						%a{href:"/problems/new"} Нова задача
 					%li
-						%a{href:"/"} Моите задачи
+						%a{href:"/my_problems"} Моите задачи
 					%li
 						%a{href:"/"} Контакти
 		%div.container

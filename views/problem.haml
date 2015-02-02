@@ -8,6 +8,9 @@
     %a{href: "/problems/#{@problem.id}/solutions"}тук.
 - else
   - solution_id = Solution.where(problem_id: @problem.id, author_id: @user.id).first
-  %p
-    Може да прегледате своето решение
-    %a{href: "/problems/#{@problem.id}/solutions/#{@solution_id}"}тук.
+  - if solution_id.present?
+    %p
+      Може да прегледате своето решение
+      %a{href: "/problems/#{@problem.id}/solutions/#{@solution_id}"}тук.
+  - else
+    %a{href: "/problems/#{@problem.id}/solutions/new"}Предай решение

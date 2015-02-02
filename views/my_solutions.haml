@@ -1,0 +1,11 @@
+%h3 Моите решения
+- if @solutions.empty?
+  %p
+    Все още не си предал никакви решения :(
+- else
+  - @solutions.each do |solution|
+    %div.itemBlock
+      %h4.itemName
+        Решение на задача
+        %a{href: "/problems/#{solution.problem.id}"}= "#{solution.problem.name}"
+      %p= solution.text
