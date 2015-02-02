@@ -3,12 +3,18 @@ get '/solutions' do
   haml: :'solutions'
 end
 
+get 'problems/:problem_id/solutions' do
+  @solutions = Solution.where(problem_id: params['problem_id'])
+  haml: :'solutions'
+end
+
 get '/solutions/new' do
   haml: :'new_solution'
 end
 
-post '/solutions/create' do
+post 'problems/:problem_id/solutions/create' do
   @solution = Solution.new
+  @solution.problem_id = params['problem_id']
   @solution.author_id = @user.id
   @solution.name = params['name']
   @solution.description = params['text']

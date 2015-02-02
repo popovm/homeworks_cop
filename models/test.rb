@@ -20,3 +20,4 @@ class Test < ActiveRecord::Base
     file_output == output
   end
 end
+<
