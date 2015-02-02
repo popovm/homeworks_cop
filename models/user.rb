@@ -8,4 +8,13 @@ class User < ActiveRecord::Base
                   :email, :name
 
   validates_uniqueness_of :email, :faculty_number
+
+  def student?
+    true
+  end
+
+  def teacher?
+    false
+  end
+
 end

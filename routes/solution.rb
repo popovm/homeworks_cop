@@ -1,5 +1,5 @@
 get '/solutions' do
-  @solutions = Solution.where(author_id != @user.id)
+  @solutions = Solution.where(author_id: @user.id)
   haml: :'solutions'
 end
 

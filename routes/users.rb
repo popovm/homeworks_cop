@@ -18,6 +18,8 @@ end
 
 get "/logout" do
   session[:user_id] = nil
+  @user = nil
+  haml :'home', layout: :application
 end
 
 post '/users/create' do
@@ -32,3 +34,8 @@ post '/users/create' do
     haml :'registration', layout: :application
   end
 end
+
+def logged_user?
+  session[:user_id] != nil
+end
+
