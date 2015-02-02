@@ -9,6 +9,7 @@ require_relative 'models/problem'
 require_relative 'models/solution'
 require_relative 'routes/home'
 require_relative 'routes/users'
+require_relative 'routes/problem'
 
 set :database, {adapter: "sqlite3", database: "public/foo.sqlite3"}
 
