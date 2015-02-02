@@ -21,12 +21,20 @@ post '/problems/create' do
   haml :'problem_upload', layout: :application
 end
 
-post '/problems/update' do
-  @problem = Problem.find(id)
+get '/problems/:id/edit' do
+  @problem = Problem.find(params['id'])
+  haml :'edit_problem', layout: :application
+end
+
+post '/problems/:id/update' do
+  @problem = Problem.find(params['id'])
   @problem.name = params['name']
   @problem.description = params['description']
   @problem.save!
-  haml :'problems', layout: :application
+  @solution = @problem.teacher_solution
+  @solution.text = params['text']
+  @solution.save!
+  haml :'problem_updated', layout: :application
 end
 
 get '/problems/:id' do
