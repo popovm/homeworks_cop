@@ -10,10 +10,10 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :faculty_number
 
   def student?
-    false
+    true
   end
 
   def teacher?
-    true
+    false
   end
 end

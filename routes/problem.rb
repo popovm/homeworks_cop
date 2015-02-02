@@ -1,5 +1,6 @@
 get '/problems' do
-  @problems = Problem.where("author_id != ?", @user.id)
+  id = @user != nil ? @user.id : 0
+  @problems = Problem.where("author_id != ?", id)
   haml :'problems', layout: :application
 end
 

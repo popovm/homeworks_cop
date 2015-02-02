@@ -1,41 +1,41 @@
-get '/solutions' do
+get '/my_solutions' do
   @solutions = Solution.where(author_id: @user.id)
-  haml: :'solutions'
+  haml :'solutions'
 end
 
-get 'problems/:problem_id/solutions' do
+get '/problems/:problem_id/solutions' do
   @solutions = Solution.where(problem_id: params['problem_id'])
-  haml: :'solutions'
+  haml :'solutions'
 end
 
-get '/solutions/new' do
-  haml: :'new_solution'
+get '/problems/:problem_id/solutions/new' do
+  @problem = Problem.find(params['problem_id'])
+  haml :'new_solution', layout: :application
 end
 
-post 'problems/:problem_id/solutions/create' do
+post '/problems/:problem_id/solutions/create' do
   @solution = Solution.new
   @solution.problem_id = params['problem_id']
   @solution.author_id = @user.id
-  @solution.name = params['name']
-  @solution.description = params['text']
+  @solution.text = params['text']
   @solution.save!
-  return "solution uploaded"
+  haml :'solution_upload', layout: :application
 end
 
-post '/solutions/update' do
-  @solution = Solution.find(id)
+post '/problems/:problem_id/solutions/:id/update' do
+  @solution = Solution.find(params['id'])
   @solution.name = params['name']
-  @solution.description = params['text']
+  @solution.text = params['text']
   @solution.save!
   return 'solution updated'
 end
 
-get '/solutions/:id' do
-  @solution = Solution.find(id)
-  haml: :'solution'
+get '/problems/:problem_id/solutions/:id' do
+  @solution = Solution.find(params['id'])
+  haml :'solution'
 end
 
-delete '/solutions/:id' do
+delete '/problems/:problem_id/solutions/:id' do
   @solution = Solution.find(params['id'])
   @solution.destroy!
   return "solution destroyed!"
