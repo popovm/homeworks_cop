@@ -1,5 +1,10 @@
 get '/problems' do
-  @problems = Problem.where(author_id != @user.id)
+  @problems = Problem.where("author_id != ?", @user.id)
+  haml :'problems', layout: :application
+end
+
+get '/my_problems' do
+  @problems = Problem.where(author_id: @user.id)
   haml :'problems', layout: :application
 end
 
@@ -21,7 +26,11 @@ post '/problems/create' do
   haml :'problem_upload', layout: :application
 end
 
-post '/problems/update' do
+get 'problems/:id/edit' do
+  @problem = Problem.find(params['id'])
+end
+
+post '/problems/:id/update' do
   @problem = Problem.find(id)
   @problem.name = params['name']
   @problem.description = params['description']
@@ -29,8 +38,9 @@ post '/problems/update' do
   haml :'problems', layout: :application
 end
 
+
 get '/problems/:id' do
-  @problem = Problem.find(id)
+  @problem = Problem.find(params['id'])
   haml :'problem', layout: :application
 end
 
