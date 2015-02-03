@@ -1,3 +1,10 @@
 %p
-  proba
-  = @solution.percentage.to_s
+  Полученият резултат от тестовете е:
+  = "#{@solution.result} %"
+
+%form{action: "/solution/#{@solution.id}/grade", method: 'post'}
+  %div.inputBlock
+    %label{:for => 'grade'} Напишете оценка:
+    %input{name: 'grade', type: 'text'}
+  %div.buttonSubmit
+    %input{name: 'submit', value: "Запази", type: 'submit'}

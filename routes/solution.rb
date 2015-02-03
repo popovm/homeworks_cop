@@ -42,6 +42,13 @@ get '/verify_solution/:id' do
   haml :'verify_solution', layout: :application
 end
 
+post '/solution/:id/grade' do
+  @solution = Solution.find(params['id'])
+  @solution.grade = params['grade'].to_f
+  @solution.save!
+  haml :'grade_updated', layout: :application
+end
+
 delete '/problems/:problem_id/solutions/:id' do
   @solution = Solution.find(params['id'])
   @solution.destroy!

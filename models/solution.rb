@@ -8,6 +8,10 @@ class Solution < ActiveRecord::Base
     "#{problem.name}_#{author.name}"
   end
 
+  def result
+    (self.percentage * 100).to_i
+  end
+
   def verify
     src_filename  = "temp/#{name}.cpp"
     exec_filename = "temp/#{name}.exe"
