@@ -1,23 +1,21 @@
-require 'FileUtils'
+require 'fileutils'
 
 class Test < ActiveRecord::Base
   belongs_to :problem
 
   attr_accessible :input, :output
 
-  def verify_test(file)
-    filename = "temp/test_#{id}.txt"
+  def verify(file)
+    input_filename = "temp/test_#{id}.txt"
     response_filename = "temp/response_#{id}.txt"
-    File.open(filename, 'w+') { |f| f.write(input) }
+    File.open(input_filename, 'w+') { |f| f.write(self.input) }
 
-    system("file < input > #{response_filename}")
+    system("#{file} < #{input_filename} > #{response_filename}")
 
     file_output = File.read(response_filename)
-    FileUtils.rm(file_output)
     FileUtils.rm(response_filename)
-    FileUtils.rm(filename)
+    FileUtils.rm(input_filename)
 
-    file_output == output
+    file_output == self.output
   end
 end
-<

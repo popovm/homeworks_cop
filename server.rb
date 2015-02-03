@@ -7,6 +7,7 @@ require 'sinatra/activerecord'
 require_relative 'models/user'
 require_relative 'models/problem'
 require_relative 'models/solution'
+require_relative 'models/test'
 require_relative 'routes/home'
 require_relative 'routes/users'
 require_relative 'routes/problem'
@@ -17,5 +18,5 @@ set :database, {adapter: "sqlite3", database: "public/foo.sqlite3"}
 enable :sessions
 
 before do
-  @user = User.find_by_id(session[:user_id])
+  @user = User.where(id: session[:user_id]).first
 end

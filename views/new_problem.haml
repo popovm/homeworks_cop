@@ -1,13 +1,15 @@
 %h3 Създаване на нова задача
 %form{action: '/problems/create', method: 'post', id: "problem-form"}
-  %div.inputBlock
-    %label{:for => 'name'} Име на задачата
-    %input{name: 'name',value: params['name'], type: 'text'}
-  %div.inputBlock
-    %label{:for => 'description'} Описание на задачата
-    %textarea{name: "description", form:"problem-form"}
-  %div.inputBlock
-    %label{:for => 'text'} Решение
-    %textarea{name: "text", form:"problem-form"}
+  #fieldWrapper
+    %div.inputBlock
+      %label{:for => 'name'} Име на задачата
+      %input{name: 'name',value: params['name'], type: 'text'}
+    %div.inputBlock
+      %label{:for => 'description'} Описание на задачата
+      %textarea{name: "description", form:"problem-form"}
+    %div.inputBlock
+      %label{:for => 'text'} Решение
+      %textarea{name: "text", form:"problem-form"}
+    %button#addTest{type: "button"} Добави тест
   %div.buttonSubmit
     %input{name: 'submit', value: "Качване", type: 'submit'}

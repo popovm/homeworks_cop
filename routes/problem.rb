@@ -24,6 +24,16 @@ post '/problems/create' do
   @problem.save!
   @solution.problem_id = @problem.id
   @solution.save!
+
+  if params['testoutput'] != nil
+    params['testoutput'].zip(params['testinput']).each do |output, input|
+      test = Test.new
+      test.input, test.output = input, output
+      test.problem_id = @problem.id
+      test.save!
+    end
+  end
+
   haml :'problem_upload', layout: :application
 end
 

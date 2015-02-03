@@ -6,6 +6,12 @@
   %p
     Може да ги разгледате
     %a{href: "/problems/#{@problem.id}/solutions"}тук.
+  - unless @problem.tests.empty?
+    %h4 Тестове
+    - @problem.tests.each do |test|
+      %div.itemBlock
+        %p= test.input
+        %p= test.output
 - else
   - solution_id = Solution.where(problem_id: @problem.id, author_id: @user.id).first
   - if solution_id.present?

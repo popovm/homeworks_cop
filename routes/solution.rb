@@ -36,6 +36,12 @@ get '/problems/:problem_id/solutions/:id' do
   haml :'solution'
 end
 
+get '/verify_solution/:id' do
+  @solution = Solution.find(params['id'])
+  @solution.verify
+  haml :'verify_solution', layout: :application
+end
+
 delete '/problems/:problem_id/solutions/:id' do
   @solution = Solution.find(params['id'])
   @solution.destroy!
