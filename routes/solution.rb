@@ -23,17 +23,21 @@ post '/problems/:problem_id/solutions/create' do
   haml :'solution_upload', layout: :application
 end
 
-post '/problems/:problem_id/solutions/:id/update' do
-  @solution = Solution.find(params['id'])
-  @solution.name = params['name']
-  @solution.text = params['text']
-  @solution.save!
-  return 'solution updated'
+get '/problems/:problem_id/solutions/:solution_id' do
+  @solution = Solution.find(params['solution_id'])
+  haml :'solution', layout: :application
 end
 
-get '/problems/:problem_id/solutions/:id' do
-  @solution = Solution.find(params['id'])
-  haml :'solution'
+get '/problems/:problem_id/solutions/:solution_id/edit' do
+  @solution = Solution.find(params['solution_id'])
+  haml :'edit_solution', layout: :application
+end
+
+post '/problems/:problem_id/solutions/:solution_id/update' do
+  @solution = Solution.find(params['solution_id'])
+  @solution.text = params['text']
+  @solution.save!
+  haml :'solution_updated', layout: :application
 end
 
 delete '/problems/:problem_id/solutions/:id' do

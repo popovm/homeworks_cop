@@ -1,0 +1,6 @@
+%h3
+  = "Решение на задача #{@solution.problem.name}"
+%p= @solution.text
+%form{action: "/problems/#{@solution.problem.id}/solutions/#{@solution.id}/edit"}
+  %div.buttonSubmit
+    %input{name: 'submit', value: "Редактирай", type: 'submit'}
