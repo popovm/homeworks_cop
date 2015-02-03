@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150203205136) do
+ActiveRecord::Schema.define(:version => 20150203205747) do
 
   create_table "problems", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20150203205136) do
     t.string  "password_digest"
     t.string  "email"
     t.integer "faculty_number"
+    t.string  "role",            :default => "student"
   end
 
 end

@@ -23,12 +23,13 @@ get "/logout" do
 end
 
 post '/users/create' do
-  @user = User.new
-  @user.email = params['email']
-  @user.name = params['name']
-  @user.faculty_number = params['fn']
-  @user.password = params['password']
-  if @user.save
+  @new_user = User.new
+  @new_user.email = params['email']
+  @new_user.name = params['name']
+  @new_user.faculty_number = params['fn']
+  @new_user.password = params['password']
+  @new_user.role = params['role']
+  if @new_user.save
     haml :'registration_success', layout: :application
   else
     haml :'registration', layout: :application

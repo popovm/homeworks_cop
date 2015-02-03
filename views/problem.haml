@@ -13,10 +13,12 @@
         %p= test.input
         %p= test.output
 - else
-  - solution_id = Solution.where(problem_id: @problem.id, author_id: @user.id).first
-  - if solution_id.present?
+  - solution = Solution.where(problem_id: @problem.id, author_id: @user.id).first
+  - if solution != nil
     %p
       Може да прегледате своето решение
-      %a{href: "/problems/#{@problem.id}/solutions/#{@solution_id}"}тук.
+      %a{href: "/problems/#{@problem.id}/solutions/#{solution.id}"}тук.
   - else
-    %a{href: "/problems/#{@problem.id}/solutions/new"}Предай решение
+    %form{action: "/problems/#{@problem.id}/solutions/new"}
+      %div.buttonSubmit
+        %input{name: 'submit', value: "Предай решение", type: 'submit'}

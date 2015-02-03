@@ -15,5 +15,13 @@
   %div.inputBlock
     %label{:for => 'fn'} Факултетен номер
     %input{name: 'fn',value: params['fn'], type: 'text'}
+  %label{:for => 'role'}
+    %div.role
+      %input{type: 'radio', name: 'role', value: "student"}
+      %label{:for => 'student'} Студент
+      %input{type: 'radio', name: 'role', value: "teacher"}
+      %label{:for => 'teacher'} Учител
   %div.buttonSubmit
     %input{name: 'submit', value: "Създай профил", type: 'submit'}
+
+

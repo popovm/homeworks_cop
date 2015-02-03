@@ -27,29 +27,29 @@
 					%li
 						%a{href:"/problems"} Задачи
 					%li
-						%a{href:"/"} Контакти
+						%a{href:"/contacts"} Контакти
 				- if !@user.nil? && @user.student?
 					%li
 						%a{href:"/"} Начало
 					%li
-						%a{href:"/"} Профил
+						%a{href:"/profile"} Профил
 					%li
 						%a{href:"/problems"} Задачи
 					%li
 						%a{href:"/my_solutions"} Моите решения
 					%li
-						%a{href:"/"} Контакти
+						%a{href:"/contacts"} Контакти
 				- if !@user.nil? && @user.teacher?
 					%li
 						%a{href:"/"} Начало
 					%li
-						%a{href:"/"} Профил
+						%a{href:"/profile"} Профил
 					%li
 						%a{href:"/problems/new"} Нова задача
 					%li
 						%a{href:"/my_problems"} Моите задачи
 					%li
-						%a{href:"/"} Контакти
+						%a{href:"/contacts"} Контакти
 		%div.container
 			= yield
 		%footer

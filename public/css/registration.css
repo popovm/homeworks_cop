@@ -46,3 +46,18 @@ label
 {
   width: 80px;
 }
+
+.role
+{
+  margin-left: 350px;
+}
+
+.role > input
+{
+  display: inline;
+}
+
+.role > label
+{
+  width: 57px;
+}
