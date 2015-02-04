@@ -8,11 +8,15 @@
     Може да ги разгледате
     %a{href: "/problems/#{@problem.id}/solutions"}тук.
   - unless @problem.tests.empty?
-    %h4 Тестове
+    %h4.itemName Тестове:
     - @problem.tests.each do |test|
       %div.itemBlock
-        %p= test.input
-        %p= test.output
+        %p
+          %strong Вход:
+          = test.input
+        %p
+          %strong Очакван Изход:
+          =  test.output
 - else
   - solution = Solution.where(problem_id: @problem.id, author_id: @user.id).first
   - if solution != nil

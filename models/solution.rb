@@ -11,25 +11,29 @@ class Solution < ActiveRecord::Base
   end
 
   def result
-    (self.percentage * 100).to_i
+    (self.percentage.to_f * 100).to_i
   end
 
   def verify
-    src_filename  = "temp/#{name}.cpp"
-    exec_filename = "temp/#{name}.exe"
-    File.open(src_filename, 'w+') { |f| f.write(self.text) }
+    unless problem.tests.empty?
+      src_filename  = "temp/#{name}.cpp"
+      exec_filename = "temp/#{name}.exe"
+      File.open(src_filename, 'w+') { |f| f.write(self.text) }
 
-    system("g++ -o #{exec_filename} #{src_filename}")
+      compilation_status = system("g++ -o #{exec_filename} #{src_filename}")
 
-    positive_test_count = problem.tests.select do |test|
-      test.verify(self, exec_filename)
-    end.length
+      positive_test_count = problem.tests.select do |test|
+        test.verify(self, exec_filename, compilation_status)
+      end.length
 
-    FileUtils.rm exec_filename
-    FileUtils.rm src_filename
+      if compilation_status
+        FileUtils.rm exec_filename
+        FileUtils.rm src_filename
+      end
 
-    self.percentage = positive_test_count.to_f / problem.tests.count
-    self.save!
+      self.percentage = positive_test_count.to_f / problem.tests.count
+      self.save!
+    end
   end
 
   def passed_tests
