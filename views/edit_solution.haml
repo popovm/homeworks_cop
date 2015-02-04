@@ -1,9 +1,12 @@
-%h3
-  = "Редактиране на задача #{@solution.problem.name}"
-%form{action: "/problems/#{@solution.problem.id}/solutions/#{@solution.id}/update", method: 'post', id: "problem-form"}
-  %div.inputBlock
-    %label{:for => 'text'} Решение
-    %textarea{name: "text", form:"problem-form"}
-      = @solution.text
-  %div.buttonSubmit
-    %input{name: 'submit', value: "Качване", type: 'submit'}
+- if @problem.end_date < Time.now
+  %h3
+    = "Редактиране на задача #{@solution.problem.name}"
+  %form{action: "/problems/#{@solution.problem.id}/solutions/#{@solution.id}/update", method: 'post', id: "problem-form"}
+    %div.inputBlock
+      %label{:for => 'text'} Решение
+      %textarea{name: "text", form:"problem-form"}
+        = @solution.text
+    %div.buttonSubmit
+      %input{name: 'submit', value: "Качване", type: 'submit'}
+- else
+  Крайният срок за предаване на решение е изтекъл :(

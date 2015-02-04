@@ -12,4 +12,11 @@ $(document).ready(function() {
     $testBlock.append($output);
     $('#fieldWrapper').append($testBlock);
   })
+
+  $("input[name='role']").change( function() {
+    if ( this.val() == 'teacher' )
+      $('#fnBlock').hide();
+    else
+      $('#fnBlock').show();
+  })
 })

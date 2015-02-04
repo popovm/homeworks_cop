@@ -1,5 +1,6 @@
 %h2.itemName= @problem.name
 %p= @problem.description
+%p= @problem.end_date
 - if @user == @problem.author
   %p
     = "Броят на предадените решения е #{@problem.solutions.count}"

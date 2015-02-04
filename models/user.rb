@@ -16,4 +16,20 @@ class User < ActiveRecord::Base
   def teacher?
     self.role == "teacher"
   end
+
+  def most_difficult_problem
+    @user.problems.sort_by{ |a, b| a.difficulty <=> b.difficulty }.last
+  end
+
+  def easiest_problem
+    @user.problems.sort_by{ |a, b| a.difficulty <=> b.difficulty }.first
+  end
+
+  def most_popular_problem
+    @user.problems.sort_by{ |a, b| a.popularity <=> b.popularity }.last
+  end
+
+  def least_popular_problem
+    @user.problems.sort_by{ |a, b| a.popularity <=> b.popularity }.first
+  end
 end

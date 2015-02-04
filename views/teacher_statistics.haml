@@ -1,0 +1,12 @@
+%h2 Статистика
+- if @user.problems.size > 0
+  %p Най-трудната задача е:
+    = @user.most_difficult_problem.name
+  %p Най-лесната задача е:
+    = @user.easiest_problem.name
+  %p Най-популярната задача е:
+    = @user.most_popular_problem.name
+  %p Най-непопулярната задача е:
+    = @user.least_popular_problem.name
+- else
+  Нямате задачи

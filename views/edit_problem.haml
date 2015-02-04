@@ -11,5 +11,15 @@
     %label{:for => 'text'} Решение
     %textarea{name: "text", form:"problem-form"}
       = @problem.teacher_solution.text
+  %div.inputBlock
+    %label{:for => 'end_date'} Краен Срок
+    %input{name: 'end_date',value: @problem.end_date, type: 'date'}
+  - @problem.tests.each do |test|
+    %div
+      %label{for: "testinput[]"}Вход
+      %input{type:"text", name:"testinput[]"}
+      %label{for: "testoutput[]"}Изход
+      %input{type:"text", name:"testoutput[]"}
+  %button#addTest{type: "button"} Добави тест
   %div.buttonSubmit
     %input{name: 'submit', value: "Качване", type: 'submit'}

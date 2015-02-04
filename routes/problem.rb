@@ -64,3 +64,6 @@ delete '/problems/:id' do
   @problem.destroy!
   haml :'problems', layout: :application
 end
+
+get '/statistics' do
+end
