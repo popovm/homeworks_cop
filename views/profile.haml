@@ -1,2 +1,14 @@
-%p
-  ="Profil na user-a ...  "
+%h3 Профил
+%form{action: '/users/create', method: 'post'}
+  %p= "Последните предадени решения на задачи"
+  - @user.solutions.order(updated_at: :desc).first(3).each do |solution|
+    %a{href: "/problems/#{solution.problem.id}/solutions/#{solution.id}"}= solution.problem.name
+  %p= "Последните оценени задачи"
+  - @user.solutions.where("grade is not null").order(updated_at: :desc).first(3).each do |solution|
+    %a{href: "/problems/#{solution.problem.id}/solutions/#{solution.id}"}= solution.problem.name
+  %divNewPassword
+    %a{href: "/profile/change_password"}= "Промяна на парола"
+  %div.buttonSubmit
+    %input{name: 'submit', value: "Създай профил", type: 'submit'}
+
+

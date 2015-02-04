@@ -1,6 +1,16 @@
 %h3
   = "Решение на задача #{@solution.problem.name}"
 %p= @solution.text
-%form{action: "/problems/#{@solution.problem.id}/solutions/#{@solution.id}/edit"}
+- if @user.student?
+  - if @solution.grade != nil
+    %p= "Оценката на вашата задача е #{@solution.grade}"
+  -else
+    %p= "Задачата все още не е оценена."
+  %form{action: "/problems/#{@solution.problem.id}/solutions/#{@solution.id}/edit"}
   %div.buttonSubmit
     %input{name: 'submit', value: "Редактирай", type: 'submit'}
+- else
+  %p= "За да оцените задачата натиснете бутона и след това попълнете формата."
+  %form{action: "/verify_solution/#{@solution.id}"}
+    %div.buttonSubmit
+      %input{name: 'submit', value: "Оцени", type: 'submit'}
