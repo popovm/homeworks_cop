@@ -7,5 +7,5 @@
     %div.itemBlock
       %h4.itemName
         Решение на:
-        %a{href: "/problems/#{solution.author.id}"}= "#{solution.author.name}"
+        %a{href: "/problems/#{solution.problem.id}/solutions/#{solution.id}"}= "#{solution.author.name}"
       %p= solution.text

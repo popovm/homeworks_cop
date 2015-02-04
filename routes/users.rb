@@ -40,3 +40,8 @@ def logged_user?
   session[:user_id] != nil
 end
 
+post '/profile/change_password' do
+  @user.password = params['new_password']
+  @user.save!
+  haml :'password_updated', layout: :application
+end
