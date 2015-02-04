@@ -2,6 +2,21 @@
   Полученият резултат от тестовете е:
   = "#{@solution.result} %"
 
+- @solution.solution_tests.each do |solution_test|
+  %div.itemBlock
+    %p
+      %strong Вход:
+      =solution_test.test.input
+    %p
+      %strong Очакван Изход:
+      = solution_test.test.output
+    %p
+      %strong Получен Изход:
+      = solution_test.received_output
+    %p
+      %strong Резултат:
+      = solution_test.outcome
+
 %form{action: "/solution/#{@solution.id}/grade", method: 'post'}
   %div.inputBlock
     %label{:for => 'grade'} Напишете оценка:

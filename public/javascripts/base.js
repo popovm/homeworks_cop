@@ -6,10 +6,12 @@ $(document).ready(function() {
     var $input = $('<input type="text" name="testinput[]">');
     var $output_label = $('<label for="testoutput[]">Изход</label>')
     var $output = $('<input type="text" name="testoutput[]">');
+    var $remove_button = $('<button class="removeTest" onclick="$(this).parent().remove()" type="button">Премахни</button>');
     $testBlock.append($input_label);
     $testBlock.append($input);
     $testBlock.append($output_label);
     $testBlock.append($output);
+    $testBlock.append($remove_button);
     $('#fieldWrapper').append($testBlock);
   })
 

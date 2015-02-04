@@ -4,7 +4,7 @@ class Solution < ActiveRecord::Base
   belongs_to :author, class_name: 'User'
   belongs_to :problem
 
-  has_many :test_solutions
+  has_many :solution_tests
 
   def name
     "#{problem.name}_#{author.name}"

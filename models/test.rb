@@ -3,7 +3,7 @@ require 'fileutils'
 class Test < ActiveRecord::Base
   belongs_to :problem
 
-  has_many :test_solutions
+  has_many :solution_tests
 
   attr_accessible :input, :output
 
@@ -18,22 +18,21 @@ class Test < ActiveRecord::Base
     FileUtils.rm(response_filename)
     FileUtils.rm(input_filename)
 
-    create_test_solution(solution, file_output)
+    create_solution_test(solution, file_output)
     file_output == self.output
   end
 
-  def create_test_solution(solution, file_output)
-    test_solution = TestSolution.new
+  def create_solution_test(solution, file_output)
+    solution_test = SolutionTest.where(test_id: self.id, solution_id: solution.id).first_or_initialize
 
     if file_output == self.output
-      test_solution.result = 1
+      solution_test.result = 1
     else
-      test_solution.result = 0
+      solution_test.result = 0
     end
 
-    test_solution.test_id = self.id
-    test_solution.solution_id = solution.id
+    solution_test.received_output = file_output
 
-    test_solution.save!
+    solution_test.save!
   end
 end

@@ -18,6 +18,7 @@ post '/problems/create' do
   @problem.author_id = @user.id
   @problem.name = params['name']
   @problem.description = params['description']
+  @problem.end_date = params['end_date']
   @solution = Solution.new
   @solution.author_id = @user.id
   @solution.text = params['text']
@@ -46,6 +47,7 @@ post '/problems/:id/update' do
   @problem = Problem.find(params['id'])
   @problem.name = params['name']
   @problem.description = params['description']
+  @problem.end_date = params['end_date']
   @problem.save!
   @solution = @problem.teacher_solution
   @solution.text = params['text']
