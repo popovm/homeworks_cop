@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150204203018) do
+ActiveRecord::Schema.define(:version => 20150204221802) do
 
   create_table "problems", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20150204203018) do
     t.integer "solution_id"
     t.integer "test_id"
     t.integer "result"
+    t.text    "received_output"
   end
 
   create_table "solutions", :force => true do |t|
