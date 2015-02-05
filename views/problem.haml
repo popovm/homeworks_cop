@@ -1,6 +1,8 @@
 %div.problemName
   %h2.itemName= @problem.name
 %div.itemBlock
+  = @problem.description
+%p= "Крайна дата за предаване на решение:"
 %p= @problem.end_date
 - if @user == @problem.author
   %p
@@ -9,7 +11,8 @@
     Може да ги разгледате
     %a{href: "/problems/#{@problem.id}/solutions"}тук.
   - unless @problem.tests.empty?
-    %h4.itemName Тестове:
+    %div.problemName
+      %h4.itemName Тестове:
     - @problem.tests.each do |test|
       %div.itemBlock
         %p
