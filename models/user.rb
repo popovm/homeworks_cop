@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   attr_accessible :password, :password_confirmation,
                   :email, :name
 
-  validates_uniqueness_of :email, :faculty_number
+  validates_uniqueness_of :email
 
   def student?
     self.role == "student"
@@ -18,18 +18,18 @@ class User < ActiveRecord::Base
   end
 
   def most_difficult_problem
-    @user.problems.sort_by{ |a, b| a.difficulty <=> b.difficulty }.last
+    problems.reject{|s| s.graded_solutions.empty?}.sort{ |a, b| a.difficulty <=> b.difficulty }.last
   end
 
   def easiest_problem
-    @user.problems.sort_by{ |a, b| a.difficulty <=> b.difficulty }.first
+    problems.reject{|s| s.graded_solutions.empty?}.sort{ |a, b| a.difficulty <=> b.difficulty }.first
   end
 
   def most_popular_problem
-    @user.problems.sort_by{ |a, b| a.popularity <=> b.popularity }.last
+    problems.sort{ |a, b| a.popularity <=> b.popularity }.last
   end
 
   def least_popular_problem
-    @user.problems.sort_by{ |a, b| a.popularity <=> b.popularity }.first
+    problems.sort{ |a, b| a.popularity <=> b.popularity }.first
   end
 end

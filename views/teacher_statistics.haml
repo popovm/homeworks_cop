@@ -1,12 +1,37 @@
 %h2 Статистика
 - if @user.problems.size > 0
-  %p Най-трудната задача е:
-    = @user.most_difficult_problem.name
-  %p Най-лесната задача е:
-    = @user.easiest_problem.name
-  %p Най-популярната задача е:
-    = @user.most_popular_problem.name
-  %p Най-непопулярната задача е:
-    = @user.least_popular_problem.name
+  %div.itemBlock
+    - difficult_problem = @user.most_difficult_problem
+    - if difficult_problem != nil
+      %p
+        Най-трудната задача е:
+        %strong= "#{difficult_problem.name}"
+        %br
+        = " Средна оценка: #{difficult_problem.difficulty}"
+    - else
+      %p= " Нямате оценени решения"
+  %div.itemBlock
+    - easy_problem = @user.easiest_problem
+    - if easy_problem != nil
+      %p
+        Най-лесната задача е:
+        %strong= "#{easy_problem.name}"
+        %br
+        = " Средна оценка: #{easy_problem.difficulty}"
+    - else
+      %p= " Нямате оценени решения"
+  %div.itemBlock
+    %p
+      Най-популярната задача е:
+      %strong= "#{@user.most_popular_problem.name}"
+      %br
+      = "Брой предадени решения: #{@user.most_popular_problem.popularity}"
+  %div.itemBlock
+    %p
+      Най-непопулярната задача е:
+      %strong= "#{@user.least_popular_problem.name}"
+      %br
+      = "Брой предадени решения: #{@user.least_popular_problem.popularity}"
 - else
-  Нямате задачи
+  %p
+    Нямате задачи

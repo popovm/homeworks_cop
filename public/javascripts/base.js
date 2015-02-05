@@ -15,6 +15,17 @@ $(document).ready(function() {
     $('#fieldWrapper').append($testBlock);
   })
 
+  var password_alert = function(form, field) {
+    if ($("input[name='" + field + "']").val() != $("input[name='password_confirmation'").val()) {
+      if ($('.errorBlock').length == 0)
+        $(form).before("<div class='errorBlock'>Паролата не съвпада!</div>");
+      else
+        $('.errorBlock').replaceWith("<div class='errorBlock'>Паролата не съвпада!</div>");
+      return false;
+    }
+    return true;
+  }
+
   $("input[name='role']").change( function() {
     if ( $(this).val() == 'teacher' ) {
       $('#fnBlock').hide();
@@ -25,12 +36,13 @@ $(document).ready(function() {
   })
 
   $("#registration-form").submit( function() {
-    if ($("input[name='password'").val() != $("input[name='password_confirmation'").val()) {
-      if ($('.errorBlock').length == 0)
-        $(this).before("<div class='errorBlock'>Паролата не съвпада!</div>");
-      else
-        $('.errorBlock').replaceWith("<div class='errorBlock'>Паролата не съвпада!</div>");
-      return false;
-    }
+    if (!(password_alert($(this), 'password')))
+     return false;
   })
+
+  $("#change-password").submit( function() {
+    if (!(password_alert($(this), 'new_password')))
+      return false;
+  })
+
 })

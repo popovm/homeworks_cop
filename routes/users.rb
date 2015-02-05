@@ -35,7 +35,7 @@ post '/users/create' do
     @new_user.faculty_number = params['fn']
     @new_user.password = params['password']
     @new_user.role = params['role']
-    @new_user.save
+    @new_user.save!
 
     haml :'registration_success', layout: :application
   rescue

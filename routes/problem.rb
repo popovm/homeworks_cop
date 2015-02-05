@@ -91,4 +91,9 @@ delete '/problems/:id' do
 end
 
 get '/statistics' do
+  if !@user.nil? && @user.teacher?
+    haml :'teacher_statistics', layout: :application
+  else
+    haml :'access_denied', layout: :application
+  end
 end

@@ -11,5 +11,7 @@
     %p.ProfileText= "Последно зададени задачи:"
     - @user.problems.sort{ |sol1, sol2| sol2.updated_at <=> sol1.updated_at }.first(3).each do |problem|
       %a.SolutionBlock{href: "/problems/#{problem.id}"}= problem.name
+    %div.inputBlock
+      %a.SolutionBlock{href: "/statistics"}= "Статистика"
 %div.NewPassword
   %a{href: "/profile/change_password"}= "Промяна на парола"

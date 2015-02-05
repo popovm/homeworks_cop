@@ -13,7 +13,7 @@ class Problem < ActiveRecord::Base
     if graded_solutions.empty?
       -1
     else
-      graded_solutions.inject{|sum, s| sum + s}/graded_solutions.length
+      graded_solutions.inject{|sum, s| sum + s.grade}/graded_solutions.length
     end
   end
 
@@ -22,7 +22,7 @@ class Problem < ActiveRecord::Base
   end
 
   def popularity
-    self.solutions.map(&:user).uniq.count
+    self.solutions.map(&:author).uniq.count
   end
 
   def rating_of_test(test)
