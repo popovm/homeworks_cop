@@ -87,11 +87,13 @@ end
 get '/problems/:id/delete' do
   @problem = Problem.find(params['id'])
   if !@user.nil? && @user.id == @problem.author_id
-    if @problem.solutions.empty?
+    if @problem.solutions.size <= 1
+      @problem.solutions.each(&:destroy)
       @problem.destroy
       haml :'problem_deleted', layout: :application
     else
       haml :'problem_not_destructable', layout: :application
+    end
   else
     haml :'access_denied', layout: :application
   end
