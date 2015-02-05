@@ -1,1 +1,5 @@
-%p.MessageBlock= @solution.grade.to_s
+%p.MessageBlock
+  Успешно оценихте задачата на
+  %strong="#{@solution.author.name}. "
+  Оценката, която поставихте е
+  %strong="#{ @solution.grade.to_s}"
