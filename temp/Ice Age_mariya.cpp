@@ -1,0 +1,2 @@
+opavi li se ?????
+2 dinozavurcheta 

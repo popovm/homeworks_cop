@@ -1,15 +1,19 @@
-%h3 Профил
+%h3= "Профил на #{@user.name}"
 %div.SolutionInformation
   -if @user.student?
-    %p.ProfileText= "Последно предадени решения на задачи:"
-    - @user.solutions.sort{ |sol1, sol2| sol2.updated_at <=> sol1.updated_at }.first(3).each do |solution|
-      %a.SolutionBlock{href: "/problems/#{solution.problem.id}/solutions/#{solution.id}"}= solution.problem.name
-    %p.ProfileText= "Последно оценени задачи:"
-    - @user.solutions.where("grade is not null").sort{ |sol1, sol2| sol2.updated_at <=> sol1.updated_at }.first(3).each do |solution|
-      %a.SolutionBlock{href: "/problems/#{solution.problem.id}/solutions/#{solution.id}"}= solution.problem.name
+    %div.profileBlock
+      %p.ProfileText= "Последно предадени решения на задачи:"
+      - @user.solutions.sort{ |sol1, sol2| sol2.updated_at <=> sol1.updated_at }.first(3).each do |solution|
+        %a.SolutionBlock{href: "/problems/#{solution.problem.id}/solutions/#{solution.id}"}= solution.problem.name
+    %div.profileBlock
+      %p.ProfileText= "Последно оценени задачи:"
+      - @user.solutions.where("grade is not null").sort{ |sol1, sol2| sol2.updated_at <=> sol1.updated_at }.first(3).each do |solution|
+        %a.SolutionBlock{href: "/problems/#{solution.problem.id}/solutions/#{solution.id}"}= solution.problem.name
   - else
-    %p.ProfileText= "Последно зададени задачи:"
-    - @user.problems.sort{ |sol1, sol2| sol2.updated_at <=> sol1.updated_at }.first(3).each do |problem|
-      %a.SolutionBlock{href: "/problems/#{problem.id}"}= problem.name
-%div.NewPassword
-  %a{href: "/profile/change_password"}= "Промяна на парола"
+    %div.profileBlock
+      %p.ProfileText= "Последно зададени задачи:"
+      - @user.problems.sort{ |sol1, sol2| sol2.updated_at <=> sol1.updated_at }.first(3).each do |problem|
+        %a.SolutionBlock{href: "/problems/#{problem.id}"}= problem.name
+%div.profileBlock
+  %div.NewPassword
+    %a{href: "/profile/change_password"}= "Промяна на парола"

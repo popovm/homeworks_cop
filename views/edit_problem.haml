@@ -16,11 +16,11 @@
       %label{:for => 'end_date'} Краен Срок
       %input{name: 'end_date',value: @problem.end_date, type: 'date'}
     - @problem.tests.each do |test|
-      %div
-        %label{for: "testinput[]"}Вход
-        %input{type:"text", name:"testinput[]"}
-        %label{for: "testoutput[]"}Изход
-        %input{type:"text", name:"testoutput[]"}
+      %div.testBlock
+        %label.testLabel{for: "testinput[]"}Вход
+        %input.inputTest{type:"text", name:"testinput[]"}
+        %label.testLabel{for: "testoutput[]"}Изход
+        %input.inputTest{type:"text", name:"testoutput[]"}
       %button.removeTest{type: "button", onclick: "$(this).parent().remove()"}
         Премахни
   %button#addTest{type: "button"} Добави тест
