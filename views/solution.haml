@@ -1,7 +1,7 @@
 %h3
   = "Решение на задача #{@solution.problem.name}"
 %div.itemBlock
-  %pre= @solution.text
+  %pre= Rack::Utils.escape_html(@solution.text)
 - if @user.student?
   - if @solution.grade != nil
     %p

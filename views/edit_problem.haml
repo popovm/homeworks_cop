@@ -11,7 +11,7 @@
     %div.inputBlock
       %label{:for => 'text'} Решение
       %textarea{name: "text", form:"problem-form"}
-        = @problem.teacher_solution.text
+        = Rack::Utils.escape_html(@problem.teacher_solution.text)
     %div.inputBlock
       %label{:for => 'end_date'} Краен Срок
       %input{name: 'end_date',value: @problem.end_date, type: 'date'}
