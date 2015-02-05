@@ -7,7 +7,7 @@ class Solution < ActiveRecord::Base
   has_many :solution_tests
 
   def name
-    "#{problem.name}_#{author.name}"
+    "#{problem.name}_#{author.name}".gsub(' ', '')
   end
 
   def result

@@ -23,6 +23,7 @@
         %input.inputTest{type:"text", name:"testoutput[]"}
       %button.removeTest{type: "button", onclick: "$(this).parent().remove()"}
         Премахни
-  %button#addTest{type: "button"} Добави тест
+  %div.buttonSubmit
+    %button#addTest{type: "button"} Добави тест
   %div.buttonSubmit
     %input{name: 'submit', value: "Качване", type: 'submit'}
