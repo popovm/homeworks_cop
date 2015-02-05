@@ -1,7 +1,7 @@
 %div.problemName
   %h2.itemName= @problem.name
 %div.itemBlock
-  = @problem.description
+  %pre= @problem.description
 %p= "Крайна дата за предаване на решение:"
 %p= @problem.end_date
 - if @user == @problem.author

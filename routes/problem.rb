@@ -77,7 +77,11 @@ end
 
 get '/problems/:id' do
   @problem = Problem.find(params['id'])
-  haml :'problem', layout: :application
+  if !@user.nil?
+    haml :'problem', layout: :application
+  else
+    haml :'access_denied', layout: :application
+  end
 end
 
 delete '/problems/:id' do

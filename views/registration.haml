@@ -1,5 +1,5 @@
 %h3 Регистрация
-%form{action: '/users/create', method: 'post'}
+%form#registration-form{action: '/users/create', method: 'post'}
   %div.inputBlock
     %label{:for => 'name'} Име
     %input{name: 'name',value: params['name'], required: true, type: 'text'}
@@ -14,7 +14,7 @@
     %input{name: 'email', value: params['email'],required: true, type: 'email'}
   #fnBlock.inputBlock
     %label{:for => 'fn'} Факултетен номер
-    %input{name: 'fn', value: params['fn'], required: true, type: 'text'}
+    %input{name: 'fn', value: params['fn'], type: 'text'}
   %label{:for => 'role'}
   %fieldset
     %div.role
