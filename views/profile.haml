@@ -3,12 +3,20 @@
   -if @user.student?
     %div.profileBlock
       %p.ProfileText= "Последно предадени решения на задачи:"
-      - @user.solutions.sort{ |sol1, sol2| sol2.updated_at <=> sol1.updated_at }.first(3).each do |solution|
-        %a.SolutionBlock{href: "/problems/#{solution.problem.id}/solutions/#{solution.id}"}= solution.problem.name
+      - if @user.solutions.size > 0
+        - @user.solutions.sort{ |sol1, sol2| sol2.updated_at <=> sol1.updated_at }.first(3).each do |solution|
+          %a.SolutionBlock{href: "/problems/#{solution.problem.id}/solutions/#{solution.id}"}= solution.problem.name
+      - else
+        %p
+          Все още не сте предали никакви решения :(
     %div.profileBlock
       %p.ProfileText= "Последно оценени задачи:"
-      - @user.solutions.where("grade is not null").sort{ |sol1, sol2| sol2.updated_at <=> sol1.updated_at }.first(3).each do |solution|
-        %a.SolutionBlock{href: "/problems/#{solution.problem.id}/solutions/#{solution.id}"}= solution.problem.name
+      - if @user.solutions.where("grade is not null").size > 0
+        - @user.solutions.where("grade is not null").sort{ |sol1, sol2| sol2.updated_at <=> sol1.updated_at }.first(3).each do |solution|
+          %a.SolutionBlock{href: "/problems/#{solution.problem.id}/solutions/#{solution.id}"}= solution.problem.name
+      - else
+        %p
+          Все още нямате оценени решения :(
   - else
     %div.profileBlock
       %p.ProfileText= "Последно зададени задачи:"

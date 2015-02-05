@@ -18,11 +18,11 @@ class User < ActiveRecord::Base
   end
 
   def most_difficult_problem
-    problems.reject{|s| s.graded_solutions.empty?}.sort{ |a, b| a.difficulty <=> b.difficulty }.last
+    problems.reject{|s| s.graded_solutions.empty?}.sort{ |a, b| a.difficulty <=> b.difficulty }.first
   end
 
   def easiest_problem
-    problems.reject{|s| s.graded_solutions.empty?}.sort{ |a, b| a.difficulty <=> b.difficulty }.first
+    problems.reject{|s| s.graded_solutions.empty?}.sort{ |a, b| a.difficulty <=> b.difficulty }.last
   end
 
   def most_popular_problem
