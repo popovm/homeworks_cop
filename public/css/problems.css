@@ -29,3 +29,26 @@ p
   font-family: sans-serif;
   font-size: 16px;
 }
+
+.MessageBlock
+{
+  border: solid;
+  border-radius: 4px;
+  border-color: #3366CC;
+  border-width: 2px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #99CC66;
+}
+
+#addTest
+{
+  width: 140px;
+  height: 30px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  background-color: #99CCFF;
+}
