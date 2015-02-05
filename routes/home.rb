@@ -7,9 +7,17 @@ get '/contacts' do
 end
 
 get '/profile' do
-  haml :'profile', layout: :application
+  if !@user.nil?
+    haml :'profile', layout: :application
+  else
+    haml :'access_denied', layout: :application
+  end
 end
 
 get '/profile/change_password' do
-  haml :'change_password', layout: :application
+  if !@user.nil?
+    haml :'change_password', layout: :application
+  else
+    haml :'access_denied', layout: :application
+  end
 end

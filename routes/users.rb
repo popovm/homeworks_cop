@@ -48,7 +48,11 @@ def logged_user?
 end
 
 post '/profile/change_password' do
-  @user.password = params['new_password']
-  @user.save!
-  haml :'password_updated', layout: :application
+  if !@user.nil?
+    @user.password = params['new_password']
+    @user.save!
+    haml :'password_updated', layout: :application
+  else
+    haml :'access_denied', layout: :application
+  end
 end
