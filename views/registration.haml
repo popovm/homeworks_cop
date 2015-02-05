@@ -1,5 +1,5 @@
 %h3 Регистрация
-%form{action: '/users/create', method: 'post'}
+%form#registration-form{action: '/users/create', method: 'post'}
   %div.inputBlock
     %label{:for => 'name'} Име
     %input{name: 'name',value: params['name'], required: true, type: 'text'}

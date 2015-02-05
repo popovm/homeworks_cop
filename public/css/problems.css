@@ -23,6 +23,20 @@ textarea
   background-color: #FFFFCC;
 }
 
+.errorBlock
+{
+  border: solid;
+  border-radius: 4px;
+  border-color: #3366CC;
+  border-width: 2px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #FF6666;
+}
+
 p
 {
   margin-left: 20px;

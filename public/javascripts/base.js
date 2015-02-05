@@ -23,4 +23,14 @@ $(document).ready(function() {
     else
       $('#fnBlock').show();
   })
+
+  $("#registration-form").submit( function() {
+    if ($("input[name='password'").val() != $("input[name='password_confirmation'").val()) {
+      if ($('.errorBlock').length == 0)
+        $(this).before("<div class='errorBlock'>Паролата не съвпада!</div>");
+      else
+        $('.errorBlock').replaceWith("<div class='errorBlock'>Паролата не съвпада!</div>");
+      return false;
+    }
+  })
 })
