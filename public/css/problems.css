@@ -7,6 +7,7 @@ textarea
 .itemName
 {
   text-decoration: underline;
+  margin-left: 20px;
 }
 
 .itemBlock
@@ -32,7 +33,7 @@ textarea
   margin-left: 10px;
   margin-bottom: 20px;
   margin-right: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
   padding: 10px;
   background-color: #FF6666;
 }
@@ -65,4 +66,28 @@ p
   font-size: 16px;
   margin-bottom: 20px;
   background-color: #99CCFF;
+}
+
+.removeTest
+{
+  width: 140px;
+  height: 30px;
+  font-size: 16px;
+  background-color: #99CCFF;
+}
+
+.testLabel
+{
+  width: 70px;
+}
+
+.inputTest
+{
+  margin-right: 20px;
+}
+
+.testBlock
+{
+  margin-left: 165px;
+  margin-bottom: 20px;
 }

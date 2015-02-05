@@ -26,4 +26,23 @@
   margin-left: 20px;
   font-size: 18px;
   margin-bottom: 20px;
+  display: inline-block;
 }
+
+.profileBlock
+{
+  border: solid;
+  border-radius: 4px;
+  border-color: #3366CC;
+  border-width: 2px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 20px;
+  background-color: #FFFFCC;
+  color: black;
+}
+

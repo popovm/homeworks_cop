@@ -18,7 +18,7 @@
 				%h2="Проект по WWW технологии"
 			%div.signIn
 				- if logged_user?
-					%a{href: "/logout"} Изход
+					%a.exit{href: "/logout"} Изход
 				- else
 					%a{href:"/login"} Вход /
 					%a{href:"/users/new"} Регистрация
