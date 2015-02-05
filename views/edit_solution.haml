@@ -5,7 +5,7 @@
     %div.inputBlock
       %label{:for => 'text'} Решение
       %textarea{name: "text", form:"problem-form"}
-        = @solution.text
+        = Rack::Utils.escape_html(@solution.text)
     %div.buttonSubmit
       %input{name: 'submit', value: "Качване", type: 'submit'}
 - else

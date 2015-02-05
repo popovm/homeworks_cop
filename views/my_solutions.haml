@@ -10,4 +10,4 @@
       %h4.itemName
         Решение на задача
         %a{href: "/problems/#{solution.problem.id}"}= "#{solution.problem.name}"
-      %pre= solution.text
+      %pre= Rack::Utils.escape_html(solution.text)
