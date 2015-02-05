@@ -81,8 +81,12 @@ post '/solution/:id/grade' do
   end
 end
 
-delete '/problems/:problem_id/solutions/:id' do
+get 'solutions/:id/delete' do
   @solution = Solution.find(params['id'])
-  @solution.destroy!
-  return "solution destroyed!"
+  if !@user.nil? && @solution.author_id == @user.id
+    @solution.destroy
+    haml :'solution_deleted', layout: :application
+  else
+    haml :'access_denied', layout: :application
+  end
 end

@@ -21,6 +21,12 @@
         %p
           %strong Очакван Изход:
           =  test.output
+  %form{action: "/problems/#{@problem.id}/edit"}
+    %div.buttonSubmit
+      %input{name: 'submit', value: "Редактирай", type: 'submit'}
+  %form{action: "/problems/#{@problem.id}/delete"}
+    %div.buttonSubmit
+      %input{name: 'submit', value: "Изтрий", type: 'submit'}
 - else
   - solution = Solution.where(problem_id: @problem.id, author_id: @user.id).first
   - if solution != nil

@@ -10,6 +10,9 @@
   %form{action: "/problems/#{@solution.problem.id}/solutions/#{@solution.id}/edit"}
     %div.buttonSubmit
       %input{name: 'submit', value: "Редактирай", type: 'submit'}
+  %form{action: "/solutions/#{@solution.id}/delete"}
+    %div.buttonSubmit
+      %input{name: 'submit', value: "Изтрий", type: 'submit'}
 - else
   %p= "За да оцените задачата натиснете бутона и след това попълнете формата."
   %form{action: "/verify_solution/#{@solution.id}"}
