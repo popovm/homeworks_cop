@@ -1,7 +1,8 @@
 %h3 Моите решения
 - if @solutions.empty?
-  %p
-    Все още не си предал никакви решения :(
+  %div.endOfTimeBlock
+    %p
+      Все още не си предал никакви решения :(
 - else
   - @solutions.each do |solution|
     %div.itemBlock

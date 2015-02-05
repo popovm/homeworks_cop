@@ -1,5 +1,6 @@
-%h2.itemName= @problem.name
-%p= @problem.description
+%div.problemName
+  %h2.itemName= @problem.name
+%div.itemBlock
 %p= @problem.end_date
 - if @user == @problem.author
   %p
