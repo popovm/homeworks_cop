@@ -1,7 +1,8 @@
 %h3 Задачи
 - if @problems.empty?
-  %p
-    Няма задачи :(
+  %div.itemBlock
+    %p
+      Няма задачи, изискващи внимание
 - else
   - @problems.each do |problem|
     %div.itemBlock

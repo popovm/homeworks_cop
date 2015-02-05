@@ -9,6 +9,20 @@ textarea
   text-decoration: underline;
 }
 
+.errorBlock
+{
+  border: solid;
+  border-radius: 4px;
+  border-color: #3366CC;
+  border-width: 2px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #FF6666;
+}
+
 .itemBlock
 {
   border: solid;
@@ -28,4 +42,18 @@ p
   margin-left: 20px;
   font-family: sans-serif;
   font-size: 16px;
+}
+
+#addTest
+{
+  width: 140px;
+  height: 30px;
+  font-size: 16px;
+  background-color: #99CCFF;
+  margin-bottom: 20px;
+}
+
+.problemName
+{
+  margin-left: 20px;
 }

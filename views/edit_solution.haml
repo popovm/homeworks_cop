@@ -1,4 +1,4 @@
-- if @problem.end_date == nil || @problem.end_date > Time.now
+- if @solution.problem.end_date == nil || @solution.problem.end_date > Date.today
   %h3
     = "Редактиране на задача #{@solution.problem.name}"
   %form{action: "/problems/#{@solution.problem.id}/solutions/#{@solution.id}/update", method: 'post', id: "problem-form"}
@@ -9,4 +9,6 @@
     %div.buttonSubmit
       %input{name: 'submit', value: "Качване", type: 'submit'}
 - else
-  Крайният срок за предаване на решение е изтекъл :(
+  %div.errorBlock
+    %p
+      Крайният срок за предаване на решение е изтекъл :(
