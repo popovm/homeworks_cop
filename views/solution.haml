@@ -4,7 +4,9 @@
   %pre= @solution.text
 - if @user.student?
   - if @solution.grade != nil
-    %p= "Оценката на вашата задача е #{@solution.grade}"
+    %p
+      = "Оценката на вашата задача е "
+      %strong= "#{@solution.grade}"
   -else
     %p= "Задачата все още не е оценена."
   %form{action: "/problems/#{@solution.problem.id}/solutions/#{@solution.id}/edit"}
@@ -14,7 +16,15 @@
     %div.buttonSubmit
       %input{name: 'submit', value: "Изтрий", type: 'submit'}
 - else
-  %p= "За да оцените задачата натиснете бутона и след това попълнете формата."
-  %form{action: "/verify_solution/#{@solution.id}"}
-    %div.buttonSubmit
-      %input{name: 'submit', value: "Оцени", type: 'submit'}
+  - if @solution.grade != nil
+    %p
+      ="Оценката на задачата е "
+      %strong="#{@solution.grade}"
+    %form{action: "/verify_solution/#{@solution.id}"}
+      %div.buttonSubmit
+        %input{name: 'submit', value: "Оцени повторно", type: 'submit'}
+  - else
+    %p= "За да оцените задачата натиснете бутона и след това попълнете формата."
+    %form{action: "/verify_solution/#{@solution.id}"}
+      %div.buttonSubmit
+        %input{name: 'submit', value: "Оцени", type: 'submit'}

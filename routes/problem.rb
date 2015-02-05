@@ -92,6 +92,7 @@ get '/problems/:id/delete' do
       haml :'problem_deleted', layout: :application
     else
       haml :'problem_not_destructable', layout: :application
+    end
   else
     haml :'access_denied', layout: :application
   end
