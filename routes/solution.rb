@@ -61,8 +61,8 @@ post '/problems/:problem_id/solutions/:solution_id/update' do
 end
 
 get '/verify_solution/:id' do
+  @solution = Solution.find(params['id'])
   if !@user.nil? && @solution.problem.author_id == @user.id
-    @solution = Solution.find(params['id'])
     @solution.verify
     haml :'verify_solution', layout: :application
   else
@@ -71,8 +71,8 @@ get '/verify_solution/:id' do
 end
 
 post '/solution/:id/grade' do
+  @solution = Solution.find(params['id'])
   if !@user.nil? && @solution.problem.author_id == @user.id
-    @solution = Solution.find(params['id'])
     @solution.grade = params['grade'].to_f
     @solution.save!
     haml :'grade_updated', layout: :application

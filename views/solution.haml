@@ -1,7 +1,7 @@
 %h3
   = "Решение на задача #{@solution.problem.name}"
 %div.itemBlock
-  %p= @solution.text
+  %pre= @solution.text
 - if @user.student?
   - if @solution.grade != nil
     %p= "Оценката на вашата задача е #{@solution.grade}"
