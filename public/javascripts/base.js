@@ -16,8 +16,10 @@ $(document).ready(function() {
   })
 
   $("input[name='role']").change( function() {
-    if ( this.val() == 'teacher' )
+    if ( $(this).val() == 'teacher' ) {
       $('#fnBlock').hide();
+      $('#fnBlock').val("");
+    }
     else
       $('#fnBlock').show();
   })

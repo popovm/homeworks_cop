@@ -16,8 +16,9 @@
     %label{:for => 'fn'} Факултетен номер
     %input{name: 'fn', value: params['fn'], required: true, type: 'text'}
   %label{:for => 'role'}
+  %fieldset
     %div.role
-      %input{type: 'radio', name: 'role', value: "student", selected: true}
+      %input{type: 'radio', name: 'role', value: "student", checked: true}
       %label{:for => 'student'} Студент
       %input{type: 'radio', name: 'role', value: "teacher"}
       %label{:for => 'teacher'} Учител

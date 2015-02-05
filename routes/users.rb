@@ -3,6 +3,7 @@ get '/users/new' do
 end
 
 get '/login' do
+  @wrong = false
   haml :'login', layout: :application
 end
 
@@ -12,6 +13,8 @@ post "/login" do
     session[:user_id] = @user.id
     haml :'login_success', layout: :application
   else
+    @user = nil
+    @wrong = true
     haml :'login', layout: :application
   end
 end
